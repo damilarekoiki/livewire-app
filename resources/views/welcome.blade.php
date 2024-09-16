@@ -1,3 +1,18 @@
+@php
+    $posts = ([
+        [
+            'id' => 1,
+            'title' => 'First post',
+            'author' => 'Adenyemi',
+        ],
+        [
+            'id' => 2,
+            'title' => 'Second post',
+            'author' => 'Olukayode',
+        ]
+    ]);
+@endphp
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -53,6 +68,14 @@
                             </nav>
                         @endif
                     </header>
+
+                    @foreach ($posts as $post)
+                        <livewire:post-item :$post :key="$post['id']"/>
+                    @endforeach
+
+                    <livewire:post-items />
+
+                    <livewire:create-post />
 
                     <main class="mt-6">
                         <div class="grid gap-6 lg:grid-cols-2 lg:gap-8">
