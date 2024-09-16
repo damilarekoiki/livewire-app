@@ -2,22 +2,19 @@
 
 namespace App\Livewire;
 
+use App\Models\Post;
 use Livewire\Component;
 
 class PostItems extends Component
 {
-    public $posts = [
-        [
-            'id' => 1,
-            'title' => 'First post',
-            'author' => 'Adenyemi',
-        ],
-        [
-            'id' => 2,
-            'title' => 'Second post',
-            'author' => 'Olukayode',
-        ]
-    ];
+    public $posts = [];
+
+    public function mount()
+    {
+        $this->posts = Post::all();
+    }
+
+
     public function render()
     {
         return view('livewire.post-items');

@@ -10,12 +10,14 @@ use Livewire\Component;
 #[Title('Create Post')]
 class CreatePost extends Component
 {
-    public $title = 'Post title...';
+    public $title;
+    public $content;
 
     public function save() {
-        // $post = Post::create([
-        //     'title' => $this->title,
-        // ]);
+        $post = Post::create([
+            'title' => $this->title,
+            'content' => $this->content,
+        ]);
 
         return redirect()->to('/posts')
         ->with('status', 'Post created!');
