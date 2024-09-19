@@ -5,8 +5,19 @@
 
     <form class="flex flex-col gap-y-4" wire:submit='save'>
         <div>
+            @error('title')
+                <span class="text-red-500">{{$message}}</span>
+            @enderror
+        </div>
+        <div>
             <label for="title" class="block">Title</label>
             <input type="text" wire:model.live='title' class="border-2 p-4 w-6/12">
+        </div>
+
+        <div>
+            @error('content')
+                <span class="text-red-500">{{$message}}</span>
+            @enderror
         </div>
         <div>
             <input type="text" wire:model.live='content' placeholder="Content..." class="border-2 p-4 w-6/12">
