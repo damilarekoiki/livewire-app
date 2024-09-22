@@ -9,7 +9,8 @@
     <form class="flex flex-col gap-y-4" wire:submit='update'>
         <div>
             <label for="title" class="block">Title</label>
-            <input type="text" wire:model.live='form.title' class="border-2 p-4 w-6/12">
+            {{-- .blur updates the field only when we tab out of the field --}}
+            <input type="text" wire:model.blur='form.title' class="border-2 p-4 w-6/12">
             @error('form.title')
                 <span class="text-red-500 block">{{$message}}</span>
             @enderror

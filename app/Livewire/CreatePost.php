@@ -3,10 +3,7 @@
 namespace App\Livewire;
 
 use App\Livewire\Forms\PostForm;
-use App\Models\Post;
-use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
-use Livewire\Attributes\Validate;
 use Livewire\Component;
 
 #[Title('Create Post')]

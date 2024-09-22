@@ -3,19 +3,30 @@
 namespace App\Livewire\Forms;
 
 use App\Models\Post;
+use Illuminate\Validation\Rule;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
 
 class PostForm extends Form
 {
-    //
-    #[Validate('required | min:5')]
+    public ?Post $post = null;
+
+    // Real time validation
+    #[Validate]
     public $title = '';
 
-    #[Validate('required | min:5')]
+    // Validates only when the form is submitted
     public $content;
 
-    public Post $post;
+    public function rules() {
+        return [
+            'title' => [
+                'required',
+                Rule::unique('posts')->ignore($this->post?->id),
+            ],
+            'content' => 'required | min:5',
+        ];
+    }
 
     public function setPost(Post $post) {
         $this->post = $post;
