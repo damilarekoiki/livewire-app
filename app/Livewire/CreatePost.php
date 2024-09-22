@@ -15,9 +15,7 @@ class CreatePost extends Component
     public PostForm $form;
 
     public function save() {
-        $this->validate();
-        
-        Post::create($this->form->all());
+        $this->form->store();
 
         return redirect()->to('/posts')
         ->with('status', 'Post created!');

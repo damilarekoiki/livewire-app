@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Livewire\Forms\PostForm;
 use App\Models\Post;
 use Livewire\Attributes\Title;
 use Livewire\Component;
@@ -10,22 +11,15 @@ use Livewire\Component;
 class UpdatePost extends Component
 {
     public Post $post;
-    public $title;
-    public $content;
+
+    public PostForm $form;
 
     public function mount(Post $post) {
-        $this->post = $post;
-
-        $this->fill(
-            $post->only('title', 'content')
-        );
+        $this->form->setPost($post);
     }
 
     public function update() {
-        $this->post->update([
-            'title' => $this->pull('title'),
-            'content' => $this->pull('content'),
-        ]);
+        $this->form->update();
 
         session()->flash('message', 'Post updated successfully!');
     }
