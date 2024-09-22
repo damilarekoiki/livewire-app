@@ -27,5 +27,9 @@
         </div>
         
         <button type="submit" class="border-2 p-4 w-1/12 bg-green-500">Update</button>
+
+        <div wire:loading>
+            Sending
+        </div>
     </form>
 </div>
