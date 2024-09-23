@@ -6,6 +6,17 @@
             </div>
         @endif
     </div>
+    <form class="flex flex-col gap-y-4 pb-4" wire:submit>
+        <div>
+            <label for="tags" class="block">Tags</label>
+            <input type="text" wire:model.blur='tags' wire:dirty.class="!outline-yellow-500 !border-yellow-500" class="outline-2 border-2 border-gray-200 outline-gray-200 p-4 w-6/12">
+            @error('tags')
+                <span class="text-red-500 block">{{$message}}</span>
+            @enderror
+            
+        </div>
+        <div wire:dirty wire:target="tags">Unsaved...</div>
+    </form>
     <form class="flex flex-col gap-y-4" wire:submit='update'>
         <div>
             <label for="title" class="block">Title</label>
