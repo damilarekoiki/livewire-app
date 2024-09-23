@@ -9,10 +9,7 @@
     <form class="flex flex-col gap-y-4 pb-4" wire:submit>
         <div>
             <label for="tags" class="block">Tags</label>
-            <input type="text" wire:model.blur='tags' wire:dirty.class="!outline-yellow-500 !border-yellow-500" class="outline-2 border-2 border-gray-200 outline-gray-200 p-4 w-6/12">
-            @error('tags')
-                <span class="text-red-500 block">{{$message}}</span>
-            @enderror
+            <x-input-text name='tags' wire:model.live='tags' wire:dirty.class="!outline-yellow-500 !border-yellow-500" class="outline-2 border-2 border-gray-200 outline-gray-200 p-4 w-6/12" />
             
         </div>
         <div wire:dirty wire:target="tags">Unsaved...</div>
@@ -21,20 +18,14 @@
         <div>
             <label for="title" class="block">Title</label>
             {{-- .blur updates the field only when we tab out of the field --}}
-            <input type="text" wire:model.blur='form.title' class="border-2 p-4 w-6/12">
-            @error('form.title')
-                <span class="text-red-500 block">{{$message}}</span>
-            @enderror
+            <x-input-text name='form.title' wire:model.blur='form.title' class="border-2 p-4 w-6/12" />
             
         </div>
         
 
         <div>
             <label for="content" class="block">Content</label>
-            <input type="text" wire:model.live='form.content' placeholder="Content..." class="border-2 p-4 w-6/12">
-            @error('form.content')
-                <span class="text-red-500 block">{{$message}}</span>
-            @enderror
+            <x-input-text name="form.content" wire:model.live='form.content' placeholder="Content..." class="border-2 p-4 w-6/12" />
         </div>
         
         <button type="submit" class="border-2 p-4 w-1/12 bg-green-500">Update</button>
