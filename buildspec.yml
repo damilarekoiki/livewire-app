@@ -1,0 +1,43 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      php: 8.2
+      nodejs: 20
+    commands:
+      - echo Installing Composer
+      - curl -sS https://getcomposer.org/installer | php
+      - mv composer.phar /usr/local/bin/composer
+      - echo Installing npm
+      - npm install -g npm
+  pre_build:
+    commands:
+      - echo Installing dependencies
+      - composer install --prefer-dist --no-interaction
+      - npm install
+      - echo Running tests
+      # - ./vendor/bin/phpunit
+  build:
+    commands:
+      # - cp .env.example .env
+      # - php artisan key:generate
+      # - php artisan migrate --force
+      
+  post_build:
+    commands:
+      - echo Build completed
+
+env:
+  variables:
+    AWS_SDK_LOAD_CONFIG: 1
+    
+artifacts:
+  files:
+    - scripts/**
+    - appspec.yml
+    - '**/*'
+
+cache:
+  paths:
+    - vendor/**
+    - node_modules/**
