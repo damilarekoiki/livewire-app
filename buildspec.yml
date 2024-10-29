@@ -15,14 +15,14 @@ phases:
       - echo Installing dependencies
       - composer install --prefer-dist --no-interaction
       - npm install
-      - echo Running tests
-      # - ./vendor/bin/phpunit
-  build:
-    commands:
       # - cp .env.example .env
       # - php artisan key:generate
+      # - php artisan config:cache
       # - php artisan migrate --force
-      
+  build:
+    commands:
+      - echo Running tests
+      # - ./vendor/bin/phpunit
   post_build:
     commands:
       - echo Build completed
