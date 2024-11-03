@@ -3,18 +3,19 @@ phases:
   install:
     runtime-versions:
       php: 8.2
-      nodejs: 20
+      nodejs: 22
     commands:
-      - echo Installing Composer
-      - curl -sS https://getcomposer.org/installer | php
-      - mv composer.phar /usr/local/bin/composer
-      - echo Installing npm
-      - npm install -g npm
-  pre_build:
-    commands:
+      # - echo Installing Composer
+      # - curl -sS https://getcomposer.org/installer | php
+      # - mv composer.phar /usr/local/bin/composer
+      # - echo Installing npm
+      # - npm install -g npm
       - echo Installing dependencies
       - composer install --prefer-dist --no-interaction
       - npm install
+  pre_build:
+    commands:
+      
       # - cp .env.example .env
       # - php artisan key:generate
       # - php artisan config:cache
