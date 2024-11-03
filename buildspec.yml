@@ -10,12 +10,16 @@ phases:
       # - mv composer.phar /usr/local/bin/composer
       # - echo Installing npm
       # - npm install -g npm
+
+      - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+      - php composer-setup.php ;
+      - php -r "unlink('composer-setup.php');" ;
+      - mv composer.phar /usr/local/bin/composer
+  pre_build:
+    commands:
       - echo Installing dependencies
       - composer install --prefer-dist --no-interaction
       - npm install
-  pre_build:
-    commands:
-      
       # - cp .env.example .env
       # - php artisan key:generate
       # - php artisan config:cache
