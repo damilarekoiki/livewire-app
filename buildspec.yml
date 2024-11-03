@@ -5,13 +5,8 @@ phases:
       # php: 8.2
       nodejs: 22
     commands:
-      - git clone https://github.com/phpenv/phpenv.git ~/.phpenv
-      - export PATH="$HOME/.phpenv/bin:$PATH"
-      - eval "$(phpenv init -)"
-      - git clone https://github.com/php-build/php-build.git ~/.phpenv/plugins/php-build
-      - phpenv install 8.2.25
-      - phpenv global 8.2.25
-      - rm -rf /tmp/*
+      - sudo add-apt-repository ppa:ondrej/php
+      - sudo apt install -y php8.2.25
 
       - echo Installing Composer
       - curl -sS https://getcomposer.org/installer | php
