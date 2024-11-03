@@ -2,22 +2,22 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      php: 8.2.25
+      php: 8.2
       nodejs: 22
     commands:
-      - amazon-linux-extras enable php8.2.25
-      - yum clean metadata
-      - yum install -y php-cli php-pdo php-fpm php-json php-mysqlnd
-      # - echo Installing Composer
-      # - curl -sS https://getcomposer.org/installer | php
-      # - mv composer.phar /usr/local/bin/composer
-      # - echo Installing npm
-      # - npm install -g npm
-
-      - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-      - php composer-setup.php ;
-      - php -r "unlink('composer-setup.php');" ;
+      # - amazon-linux-extras enable php8.2.25
+      # - yum clean metadata
+      # - yum install -y php-cli php-pdo php-fpm php-json php-mysqlnd
+      - echo Installing Composer
+      - curl -sS https://getcomposer.org/installer | php
       - mv composer.phar /usr/local/bin/composer
+      - echo Installing npm
+      - npm install -g npm
+
+      # - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+      # - php composer-setup.php ;
+      # - php -r "unlink('composer-setup.php');" ;
+      # - mv composer.phar /usr/local/bin/composer
   pre_build:
     commands:
       - echo Installing dependencies
