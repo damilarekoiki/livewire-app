@@ -2,9 +2,12 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      # php: 8.1
+      # php: 8.2
       nodejs: 22
     commands:
+      - amazon-linux-extras enable php8.2
+      - yum clean metadata
+      - yum install -y php-cli php-pdo php-fpm php-json php-mysqlnd
       # - echo Installing Composer
       # - curl -sS https://getcomposer.org/installer | php
       # - mv composer.phar /usr/local/bin/composer
