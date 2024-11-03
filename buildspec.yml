@@ -9,10 +9,10 @@ phases:
       - export PATH="$HOME/.phpenv/bin:$PATH"
       - eval "$(phpenv init -)"
       - git clone https://github.com/php-build/php-build.git ~/.phpenv/plugins/php-build
-      - phpenv install 8.2
-      - phpenv global 8.2
+      - phpenv install 8.2.25
+      - phpenv global 8.2.25
       - rm -rf /tmp/*
-      
+
       - echo Installing Composer
       - curl -sS https://getcomposer.org/installer | php
       - mv composer.phar /usr/local/bin/composer
