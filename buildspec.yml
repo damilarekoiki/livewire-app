@@ -9,6 +9,7 @@ phases:
       - sudo apt install -y php8.2
       - sudo update-alternatives --set php /usr/bin/php8.2
 
+      - php -v
       - echo Installing Composer
       - curl -sS https://getcomposer.org/installer | php
       - mv composer.phar /usr/local/bin/composer
