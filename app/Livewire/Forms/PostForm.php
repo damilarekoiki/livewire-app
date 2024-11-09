@@ -21,7 +21,7 @@ class PostForm extends Form
     public function rules() {
         return [
             'title' => [
-                'required',
+                // 'required',
                 Rule::unique('posts')->ignore($this->post?->id),
             ],
             'content' => 'required | min:5',
