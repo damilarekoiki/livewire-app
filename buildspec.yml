@@ -17,7 +17,7 @@ phases:
       - echo Installing dependencies
       - composer install --prefer-dist --no-interaction
       - npm install
-      # - cp .env.example .env
+      - cp .env.example .env
       - php artisan key:generate
       - touch database/database.sqlite
       - php artisan migrate --force
