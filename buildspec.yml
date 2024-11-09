@@ -20,6 +20,8 @@ phases:
       # - cp .env.example .env
       # - php artisan key:generate
       # - php artisan migrate --force
+      - touch database/database.sqlite
+      - php artisan migrate --database=sqlite --force
   build:
     commands:
       - echo Running tests
