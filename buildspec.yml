@@ -19,10 +19,10 @@ phases:
       - npm install
       - cp .env.example .env
       - php artisan key:generate
-      - touch database/database.sqlite
-      - php artisan migrate --force
   build:
     commands:
+      - touch database/database.sqlite
+      - php artisan migrate --force
       - npm run build
       - echo Running tests
       - php artisan test
