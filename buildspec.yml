@@ -23,6 +23,7 @@ phases:
       - php artisan migrate --force
   build:
     commands:
+      - npm run build
       - echo Running tests
       - php artisan test
   post_build:
