@@ -7,5 +7,8 @@ sudo systemctl start codedeploy-agent
 
 composer install --prefer-dist --no-interaction
 
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
+nvm install 22
+
 npm install
 npm run build
