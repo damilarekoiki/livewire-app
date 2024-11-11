@@ -1,7 +1,6 @@
 version: 0.0
 os: linux
 files:
-  - source: livewire-pipeline
-    destination: /var/www/laravel-app
+  - source: /livewire-pipeline/
 #     overwrite: true
 # file_exists_behavior: OVERWRITE
