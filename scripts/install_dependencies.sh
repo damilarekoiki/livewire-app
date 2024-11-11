@@ -7,7 +7,5 @@ sudo systemctl start codedeploy-agent
 
 composer install --prefer-dist --no-interaction
 
-source ~/.bashrc
-
 npm install
 npm run build
