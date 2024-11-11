@@ -7,9 +7,7 @@ sudo systemctl start codedeploy-agent
 
 composer install --prefer-dist --no-interaction
 
-source ~/.nvm/nvm.sh
-
-nvm use 22
+export PATH=$PATH:/usr/local/bin  # Adjust this path if npm is located elsewhere
 
 npm install
 npm run build
