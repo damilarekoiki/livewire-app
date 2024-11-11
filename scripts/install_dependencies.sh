@@ -1,6 +1,8 @@
 #!/bin/bash
 cd /var/www/laravel-app
 
+sudo chown -R $USER:$USER /var/www/laravel-app
+
 sudo apt update
 sudo apt install nginx
 sudo systemctl start codedeploy-agent
@@ -15,4 +17,9 @@ export NVM_DIR="$HOME/.nvm"
 nvm install 22
 
 npm install
+
+chmod -R 755 /var/www/laravel-app
+chmod -R 755 /var/www/laravel-app/node_modules
+chmod -R 755 /var/www/laravel-app/public
+
 npm run build
