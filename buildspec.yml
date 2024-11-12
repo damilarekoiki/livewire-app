@@ -1,8 +1,4 @@
 version: 0.2
-env:
-  variables:
-    APP_KEY: 'base64:WPxwp2mji6pS1rfRXRquyMl5ViyYu9mZwYJWfLaFM1I='
-    DB_CONNECTION: 'sqlite'
 phases:
   install:
     runtime-versions:
@@ -21,13 +17,15 @@ phases:
       - echo Installing dependencies
       - composer install --prefer-dist --no-interaction
       - npm install
+      - cp .env.example .env.testing
+      - php artisan key:generate --env=testing
       - touch database/database.sqlite
-      - php artisan migrate --force
+      - php artisan migrate --force --env=testing
   build:
     commands:
       - npm run build
       - echo Running tests
-      - php artisan test
+      - php artisan test --env=testing
   post_build:
     commands:
       - echo Build completed
