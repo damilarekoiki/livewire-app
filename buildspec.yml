@@ -1,4 +1,8 @@
 version: 0.2
+env:
+  variables:
+    APP_KEY: 'testappkey'
+    DB_CONNECTION: 'sqlite'
 phases:
   install:
     runtime-versions:
@@ -11,10 +15,6 @@ phases:
       - mv composer.phar /usr/local/bin/composer
       - echo Installing npm
       - npm install -g npm
-  env:
-    variables:
-      APP_KEY: 'testappkey'
-      DB_CONNECTION: 'sqlite'
   pre_build:
     commands:
       - php -v
