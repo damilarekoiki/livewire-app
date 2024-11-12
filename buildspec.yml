@@ -1,7 +1,7 @@
 version: 0.2
 env:
   variables:
-    APP_KEY: 'testappkey'
+    APP_KEY: 'base64:WPxwp2mji6pS1rfRXRquyMl5ViyYu9mZwYJWfLaFM1I='
     DB_CONNECTION: 'sqlite'
 phases:
   install:
