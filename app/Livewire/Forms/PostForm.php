@@ -16,7 +16,7 @@ class PostForm extends Form
     public $title = '';
 
     // Validates only when the form is submitted
-    public $content;
+    public $content = '';
 
     public function rules() {
         return [

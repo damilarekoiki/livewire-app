@@ -12,7 +12,7 @@
         
         <div>
             <label for="content" class="block">Content</label>
-            <x-input-text name='form.content' placeholder="Content..." class="border-2 p-4 w-6/12" />
+            <x-input-text name="form.content" wire:model.live='form.content'  placeholder="Content..." class="border-2 p-4 w-6/12" />
         </div>
         
         <button type="submit" class="border-2 p-4 w-1/12 bg-green-500">Save</button>
