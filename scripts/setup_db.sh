@@ -5,9 +5,11 @@ if [ ! -f database/database.sqlite ]; then
   touch database/database.sqlite
 fi
 
-sudo chmod 664 database/database.sqlite
-sudo chmod 775 database/database.sqlite
-sudo chown www-data:www-data database/database.sqlite
+sudo chmod 664 /var/www/laravel-app/database/database.sqlite
+sudo chmod 775 /var/www/laravel-app/database/database.sqlite
+sudo chown www-data:www-data /var/www/laravel-app/database/database.sqlite
+sudo chmod -R 775 /var/www/laravel-app/database
+sudo chown -R www-data:www-data /var/www/laravel-app/database
 
 sudo chmod -R 775 /var/www/laravel-app/storage /var/www/laravel-app/bootstrap/cache
 sudo chown -R www-data:www-data /var/www/laravel-app/storage /var/www/laravel-app/bootstrap/cache
