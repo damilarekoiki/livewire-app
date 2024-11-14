@@ -4,7 +4,6 @@
     <span>Author: {{$author}}</span>
 
     <form class="flex flex-col gap-y-4" wire:submit='save'>
-        @csrf
         <div>
             <label for="title" class="block">Title</label>
             <x-input-text name="form.title" wire:model.live='form.title' class="border-2 p-4 w-6/12" />
